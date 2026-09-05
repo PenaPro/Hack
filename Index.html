@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Papu Tools</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ background:#080a0d;
+ color:#e8e8e8;
+ font-family:Arial,sans-serif;
+}
+
+.top{
+ height:58px;
+ background:#0d1014;
+ border-bottom:1px solid #20252b;
+ display:flex;
+ align-items:center;
+ padding:0 18px;
+}
+
+.logo{
+ font-weight:bold;
+ font-size:20px;
+ color:#fff;
+}
+
+.logo span{
+ color:#00ff88;
+}
+
+.badge{
+ margin-left:auto;
+ font-size:12px;
+ color:#00ff88;
+}
+
+.container{
+ max-width:700px;
+ margin:auto;
+ padding:25px 15px;
+}
+
+.hero{
+ text-align:center;
+ padding:15px 0 25px;
+}
+
+.hero h1{
+ font-size:34px;
+ margin:5px;
+}
+
+.hero p{
+ color:#888;
+}
+
+.card{
+ background:#101419;
+ border:1px solid #222931;
+ border-radius:12px;
+ padding:20px;
+ margin-bottom:15px;
+}
+
+.row{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:15px;
+}
+
+.version{
+ color:#888;
+ font-size:13px;
+}
+
+.status{
+ color:#00ff88;
+ font-size:13px;
+}
+
+button{
+ width:100%;
+ padding:14px;
+ margin-top:9px;
+ border:0;
+ border-radius:8px;
+ background:#00e67a;
+ color:#00170c;
+ font-weight:bold;
+ font-size:15px;
+}
+
+button.secondary{
+ background:#1b2128;
+ color:#ddd;
+}
+
+.progressBox{
+ display:none;
+ margin-top:18px;
+}
+
+.track{
+ height:9px;
+ background:#252b32;
+ border-radius:20px;
+ overflow:hidden;
+}
+
+.bar{
+ height:100%;
+ width:0%;
+ background:#00e67a;
+ transition:.3s;
+}
+
+.console{
+ margin-top:14px;
+ height:145px;
+ background:#050607;
+ border:1px solid #1c2228;
+ border-radius:8px;
+ padding:12px;
+ font-family:monospace;
+ font-size:12px;
+ color:#00ff88;
+ overflow:hidden;
+ text-align:left;
+}
+
+.warning{
+ color:#777;
+ font-size:11px;
+ text-align:center;
+ margin-top:20px;
+}
+
+#prank{
+ display:none;
+ text-align:center;
+ padding:60px 20px;
+}
+
+#prank h1{
+ font-size:42px;
+}
+
+#prank p{
+ color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+ <div class="logo">Papu<span>Tools</span></div>
+ <div class="badge">● SERVER ONLINE</div>
+</div>
+
+<div class="container">
+
+<div class="hero">
+ <h1>Papu Hacks</h1>
+ <p>Roblox Utility Dashboard</p>
+</div>
+
+<div class="card">
+
+<div class="row">
+ <b>Executor</b>
+ <span class="version">v9.4.2</span>
+</div>
+
+<div class="row">
+ <span>Service status</span>
+ <span class="status">● Operational</span>
+</div>
+
+<button onclick="start()">Initialize</button>
+
+<button class="secondary" onclick="fakeDownload()">
+Download Client
+</button>
+
+<div class="progressBox" id="progressBox">
+
+<p id="status">Preparing...</p>
+
+<div class="track">
+ <div class="bar" id="bar"></div>
+</div>
+
+<div class="console" id="console"></div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="row">
+ <b>System</b>
+ <span class="status">Ready</span>
+</div>
+
+<p class="version">
+Client: Mobile<br>
+Connection: Secure<br>
+Build: 9421
+</p>
+
+</div>
+
+<p class="warning">
+PapuTools is a fictional prank page. Nothing is downloaded or executed.
+</p>
+
+</div>
+
+<div id="prank">
+ <h1>💀 GOT TROLLED</h1>
+ <p>There was never an executor 😂</p>
+ <p>Nothing was downloaded or installed.</p>
+</div>
+
+<script>
+
+function fakeDownload(){
+ alert("Preparing fictional client...");
+ start();
+}
+
+function start(){
+
+ document.getElementById("progressBox").style.display="block";
+
+ let bar=document.getElementById("bar");
+ let status=document.getElementById("status");
+ let consoleBox=document.getElementById("console");
+
+ let messages=[
+  "Connecting to service...",
+  "Checking client version...",
+  "Loading interface...",
+  "Verifying configuration...",
+  "Initializing modules...",
+  "Preparing session...",
+  "Finalizing..."
+ ];
+
+ let progress=0;
+
+ let timer=setInterval(()=>{
+
+  progress+=Math.floor(Math.random()*9)+4;
+
+  if(progress>100)progress=100;
+
+  bar.style.width=progress+"%";
+
+  let msg=messages[Math.floor(Math.random()*messages.length)];
+
+  consoleBox.innerHTML+="> "+msg+"<br>";
+  consoleBox.scrollTop=consoleBox.scrollHeight;
+
+  if(progress>=100){
+
+   clearInterval(timer);
+
+   status.innerHTML="Initialization complete";
+
+   setTimeout(()=>{
+
+    document.querySelector(".container").style.display="none";
+    document.getElementById("prank").style.display="block";
+
+   },1800);
+  }
+
+ },600);
+}
+
+</script>
+
+</body>
+  </html>
